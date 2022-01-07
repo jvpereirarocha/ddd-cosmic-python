@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "context-business"
+version = "0.1.0"
+description = ""
+authors = ["Joao Victor Rocha <jvpereirarocha@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^2.0.2"
+requests = "^2.26.0"
+pytest = "^6.2.5"
+celery = "^5.2.3"
+redis = "^4.1.0"
+black = "^21.12b0"
+isort = "^5.10.1"
+python-dotenv = "^0.19.2"
+Flask-SQLAlchemy = "^2.5.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
