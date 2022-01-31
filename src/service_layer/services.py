@@ -4,7 +4,7 @@ from src.adapters.repository import AbstractRepository
 from src import InvalidSku
 
 
-def is_valid_sku(sku: str, batches: Iterator[model.Batch]):
+def is_valid_sku(sku: str, batches: Iterator[model.Batch]) -> bool:
     return sku in {batch.sku for batch in batches}
 
 def allocate(line: model.OrderLine, repo: AbstractRepository, session) -> str:
