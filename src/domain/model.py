@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional, Set
+from typing import Optional, Set, List
 from datetime import datetime
 
 from src.domain.exceptions import OutOfStock
