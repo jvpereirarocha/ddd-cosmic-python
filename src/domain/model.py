@@ -13,7 +13,9 @@ class OrderLine:
 
 
 class Batch:
-    def __init__(self, reference: str, sku: str, quantity: int, eta: Optional[datetime] = None):
+    def __init__(
+        self, reference: str, sku: str, quantity: int, eta: Optional[datetime] = None
+    ):
         self.reference = reference
         self.sku = sku
         self.eta = eta
@@ -60,7 +62,9 @@ class Batch:
 
 def allocate(line: OrderLine, batches: List[Batch]) -> str:
     try:
-        batch: Batch = next(batch for batch in sorted(batches) if batch.can_allocate(line))
+        batch: Batch = next(
+            batch for batch in sorted(batches) if batch.can_allocate(line)
+        )
         batch.allocate(line)
         return batch.reference
     except StopIteration:

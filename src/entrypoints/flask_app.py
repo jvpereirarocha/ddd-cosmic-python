@@ -14,7 +14,7 @@ app = Flask(__name__)
 get_session = sessionmaker(bid=create_engine(config.get_postgres_uri()))
 
 
-@app.route("/allocate", methods=['POST'])
+@app.route("/allocate", methods=["POST"])
 def allocate():
     session = get_session()
     repo = repository.SqlAlchemyRepository(session)

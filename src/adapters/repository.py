@@ -3,7 +3,6 @@ from src.domain.model import Batch
 
 
 class AbstractRepository(abc.ABC):
-    
     @abc.abstractmethod
     def add(self, batch: Batch):
         raise NotImplementedError
@@ -11,10 +10,11 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def get(self, reference: str) -> Batch:
         raise NotImplementedError
-    
+
     @abc.abstractmethod
     def list(self):
         raise NotImplementedError
+
 
 class SqlAlchemyRepository(AbstractRepository):
     def __init__(self, session):

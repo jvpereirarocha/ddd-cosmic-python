@@ -7,6 +7,7 @@ from src import InvalidSku
 def is_valid_sku(sku: str, batches: Iterator[model.Batch]) -> bool:
     return sku in {batch.sku for batch in batches}
 
+
 def allocate(line: model.OrderLine, repo: AbstractRepository, session) -> str:
     batches = repo.list()
     if not is_valid_sku(line.sku, batches=batches):
