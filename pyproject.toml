@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ddd-cosmic-python"
+version = "0.1.0"
+description = "DDD Example of the Cosmic Python Book"
+authors = ["Joao Victor Rocha <jvpereirarocha@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.0.3"
+psycopg2 = "^2.9.3"
+SQLAlchemy = "^1.4.32"
+alembic = "^1.7.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.1"
+isort = "^5.10.1"
+black = "^22.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
