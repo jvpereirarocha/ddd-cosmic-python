@@ -9,18 +9,15 @@ import random
 def mock_batch_generate(
     reference: str, sku: str, quantity: int, eta: Optional[datetime] = None
 ):
-    def make_mock():
-        if not reference:
-            reference = "ref-001"
-        if not sku:
-            sku = "TEST-PRODUCT"
-        if not quantity:
-            quantity = 10
+    if not reference:
+        reference = "ref-001"
+    if not sku:
+        sku = "TEST-PRODUCT"
+    if not quantity:
+        quantity = 10
 
-        batch = Batch(reference=reference, sku=sku, quantity=quantity, eta=eta)
-        return batch
-
-    yield make_mock
+    batch = Batch(reference=reference, sku=sku, quantity=quantity, eta=eta)
+    return batch
 
 
 @pytest.fixture(scope="function")
@@ -31,6 +28,7 @@ def mock_batch_with_eta():
     return batch
 
 
+@pytest.fixture(scope="function")
 def mock_list_of_batches():
     list_of_batches = []
     for i in range(0, 4):
@@ -43,12 +41,3 @@ def mock_list_of_batches():
         list_of_batches.append(mock_batch)
 
     return list_of_batches
-
-
-batches = mock_list_of_batches()
-
-
-@pytest.fixture
-def mock_fake_repository():
-
-    return FakeRepository(batches=batches)
