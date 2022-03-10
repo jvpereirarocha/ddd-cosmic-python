@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 import config
 from src import OutOfStock, InvalidSku
-from src.domain.model import OrderLine, Batch
+from src.domain.aggregates.model import OrderLine, Batch
 from src.adapters import orm, repository
 from src.service_layer import services
 

@@ -1,7 +1,7 @@
 from typing import Optional
 import pytest
 from datetime import datetime
-from src.domain.model import Batch
+from src.domain.aggregates.model import Batch
 from tests.adapters.mock_repository import FakeRepository
 import random
 

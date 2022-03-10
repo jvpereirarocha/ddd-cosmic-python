@@ -2,7 +2,7 @@ from sqlalchemy import Table, Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy import MetaData
 from sqlalchemy.orm import mapper, relationship
 
-from src.domain.model import Batch, OrderLine
+from src.domain.aggregates.model import Batch, OrderLine
 
 
 metadata = MetaData()

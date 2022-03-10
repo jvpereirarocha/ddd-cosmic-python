@@ -1,6 +1,6 @@
 from typing import Set, Optional, List
 from src.adapters.repository import AbstractRepository
-from src.domain.model import Batch
+from src.domain.aggregates.model import Batch
 
 
 class FakeRepository(AbstractRepository):

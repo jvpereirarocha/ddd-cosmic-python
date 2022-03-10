@@ -1,5 +1,5 @@
 import abc
-from src.domain.model import Batch
+from src.domain.aggregates.model import Batch
 
 
 class AbstractRepository(abc.ABC):

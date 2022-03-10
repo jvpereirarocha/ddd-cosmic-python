@@ -1,5 +1,5 @@
 from typing import Iterator
-from src.domain import model
+from src.domain.aggregates import model
 from src.adapters.repository import AbstractRepository
 from src import InvalidSku
 
