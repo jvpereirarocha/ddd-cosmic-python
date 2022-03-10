@@ -1,4 +1,7 @@
-def test_get_batch(mock_fake_repository):
-    repository = mock_fake_repository
+from mock_repository import FakeRepository
 
-    assert repository.get(reference="A001") is None
+
+def test_get_batch(mock_list_of_batches):
+    batches = mock_list_of_batches
+    repo = FakeRepository(batches)
+    assert repo.get(reference="A001") == []
