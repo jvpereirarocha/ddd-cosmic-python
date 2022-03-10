@@ -1,4 +1,4 @@
-from typing import Set
+from typing import Set, Optional, List
 from src.adapters.repository import AbstractRepository
 from src.domain.model import Batch
 
@@ -10,8 +10,8 @@ class FakeRepository(AbstractRepository):
     def add(self, batch: Batch):
         self._batches.add(batch)
 
-    def get(self, reference: str):
-        return next(b for b in self._batches if b.reference == reference)
+    def get(self, reference: str) -> Optional[List[Batch]]:
+        return [batch for batch in self._batches if batch.reference == reference]
 
     def list(self):
         return list(self._batches)
