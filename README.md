@@ -19,17 +19,19 @@ The link of the book is [here](https://www.cosmicpython.com/)
 Done!! Now you need to run a docker container with Postgres
 
 ## Configuring a container of Postgres
-1. First of all, install Docker. If you already have it installed, skip this step. Otherwise, check the official documentationn to install
+1. Firstly, install Docker. If you already have it installed, skip this step. Otherwise, check the official documentation to install
+
 [Docker Documentation](https://docs.docker.com/get-docker/)
+
 2. Create a PostgreSQL container with the command
 `docker container run -d -p <host_port>:5432 --name <name_of_container> -e POSTGRES_USER=<your_user> -e POSTGRES_PASSWORD=<your_password> -e POSTGRES_DB=<your_db> postgres:latest`
 
-2.1. Example:
-    To run a container named `mypostgres` on the port `5433` with the database name `mydb`, the username `admin` and the password `root`the command is:
+    2.1. Example:
+        To run a container named `mypostgres` on the port `5433` with the database name `mydb`, the username `admin` and the password `root`the command is:
       
-      docker container run -d -p 5433:5432 --name mypostgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=root -e POSTGRES_DB=mydb postgres:latest
+        docker container run -d -p 5433:5432 --name mypostgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=root -e POSTGRES_DB=mydb postgres:latest
       
-3. After that, adding the environment variable `POSTGRES_URL="postgresql+psycopg2://user:password@host:port/dbname"` to your `.env` file
+3. After that, add the environment variable `POSTGRES_URL="postgresql+psycopg2://user:password@host:port/dbname"` into your `.env` file
 4. Add the other environment variable `API_URL="http://localhost:4200"` (or another port different of `4200`) to run the API
 
 That's it. :)
