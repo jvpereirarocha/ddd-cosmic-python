@@ -7,7 +7,12 @@ from src.domain.aggregates.model import Batch, OrderLine
 
 @pytest.yield_fixture(scope="function")
 def mock_batch_generate():
-    def make_mock(reference: str = "", sku: str = "", quantity: int = 100, eta: Optional[datetime] = None):
+    def make_mock(
+        reference: str = "",
+        sku: str = "",
+        quantity: int = 100,
+        eta: Optional[datetime] = None,
+    ):
         if not reference:
             reference = "ref-001"
         if not sku:
@@ -17,15 +22,13 @@ def mock_batch_generate():
 
         batch = Batch(reference=reference, sku=sku, quantity=quantity, eta=eta)
         return batch
-    
+
     yield make_mock
 
 
 @pytest.fixture(scope="function")
 def mock_batch_with_eta():
-    batch = mock_batch_generate(
-        eta=datetime.now()
-    )
+    batch = mock_batch_generate(eta=datetime.now())
     return batch
 
 
@@ -52,14 +55,14 @@ def mock_order_line_generate():
         quantity: int = 0,
     ):
         order_line = OrderLine(
-            order_id=order_id or f"ORD-{str(random.choice([x for x in range(0, 100)])).zfill(3)}",
+            order_id=order_id
+            or f"ORD-{str(random.choice([x for x in range(0, 100)])).zfill(3)}",
             sku=sku or f"TEST-PRODUCT-{random.choice([x for x in range(0, 10)])}",
-            quantity=quantity or random.choice([x for x in range(0, 100)])
+            quantity=quantity or random.choice([x for x in range(0, 100)]),
         )
         return order_line
-    
-    yield make_mock
 
+    yield make_mock
 
 
 @pytest.fixture(scope="function")

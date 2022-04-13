@@ -10,12 +10,7 @@ def test_get_batch(mock_list_of_batches):
 
 def test_add_batch(mock_batch_generate):
     batches = set()
-    batch = mock_batch_generate(
-        "REF0001",
-        "TABLE-010",
-        20,
-        datetime.now()
-    )
+    batch = mock_batch_generate("REF0001", "TABLE-010", 20, datetime.now())
     repo = FakeRepository(batches=batches)
     repo.add(batch=batch)
     assert len(repo.list()) > 0

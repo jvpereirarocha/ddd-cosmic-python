@@ -32,7 +32,6 @@ class SqlAlchemyRepository(AbstractRepository):
 
     def list(self):
         self.session.query(Batch).all()
-    
+
     def remove(self, batch: Batch):
         self.session.delete(batch)
-
