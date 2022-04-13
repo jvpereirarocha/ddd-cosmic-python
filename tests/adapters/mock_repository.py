@@ -15,3 +15,6 @@ class FakeRepository(AbstractRepository):
 
     def list(self):
         return list(self._batches)
+
+    def remove(self, batch: Batch):
+        self._batches.remove(batch)
