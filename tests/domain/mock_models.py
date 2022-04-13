@@ -30,7 +30,7 @@ def mock_batch_with_eta():
 
 
 @pytest.fixture(scope="function")
-def mock_list_of_batches():
+def mock_list_of_batches(mock_batch_generate):
     list_of_batches = []
     for i in range(0, 4):
         mock_batch = mock_batch_generate(
@@ -44,12 +44,8 @@ def mock_list_of_batches():
     return list_of_batches
 
 
-@pytest.yield_fixture(scope="function")
-def mock_order_line_generate(
-    # order_id: str = "",
-    # sku: str = "",
-    # quantity: int = 0,
-):
+@pytest.fixture(scope="function")
+def mock_order_line_generate():
     def make_mock(
         order_id: str = "",
         sku: str = "",
