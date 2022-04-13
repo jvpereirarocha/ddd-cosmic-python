@@ -15,6 +15,10 @@ class AbstractRepository(abc.ABC):
     def list(self):
         raise NotImplementedError
 
+    @abc.abstractmethod
+    def remove(self, batch: Batch):
+        raise NotImplementedError
+
 
 class SqlAlchemyRepository(AbstractRepository):
     def __init__(self, session):
@@ -28,3 +32,7 @@ class SqlAlchemyRepository(AbstractRepository):
 
     def list(self):
         self.session.query(Batch).all()
+    
+    def remove(self, batch: Batch):
+        self.session.delete(batch)
+
